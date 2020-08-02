@@ -73,6 +73,9 @@ input:focus{
 	outline:none;
 	border-color:#3a84df
 }
+strong{
+	font-weight: bold;
+}
 #map{
 	position:absolute;
 	top:0;

@@ -37,28 +37,23 @@
 <body>
     <div id="map"></div>
     <form id="options">
-        <!--
-        <label for="radiusInput">Radius</label> <input type="number" value="5" min="0" id="radiusInput" name="radiusInput" autofocus />
-        <label for="unitSelector">Units</label> <select id="unitSelector" name="unitSelector">
-            <option value="km">Kilometers</option>
-        </select>
-        <label for="colorSelector">Colour</label> <select id="colorSelector" name="colorSelector">
-            <option value="#0000ff">Blue</option>
-            <option value="#ff0000">Red</option>
-			<option value="#00ff00">Green</option>			
-        </select>
-        -->
+        <p><strong>Instructions</strong></p>
         <p>Click to place a 5km circle over a location</p>
         <p>Right click to remove a circle</p>
-        <p><sub><strong>Disclaimer:</strong> This site is for informational purposes only, and<br />
-            should not be used for official purposes, nor has any<br />
-            guarantees of accuracy for legal purposes.</sub></p>
-        <p><sub>Follow the guidance of your local health authorities</sub></p>
+        
     </form>
 
     <form id="search">
         <input type="text" id="searchInput" name="searchInput" placeholder="Enter an address&hellip;" />
     </form>
+
+    <div id="otherone">
+        <p><strong>Disclaimer:</strong></p>
+        <p><sub>This site is for informational purposes only, and should<br />
+            should not be used for official purposes, nor has any<br />
+            guarantees of accuracy for legal purposes.</sub></p>
+        <p><sub>Follow the guidance of your local health authorities</sub></p>
+    </div>
 
     <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyCeSBF86GV_ZHQNtKUJ9Jb3qwUIm20JaPw&amp;libraries=places"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
