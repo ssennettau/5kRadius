@@ -124,6 +124,10 @@ strong{
 #legend td {
 	padding:5px
 }
+#legend img {
+	height:16px;
+	width:16px
+}
 #options input{
 	-webkit-border-radius:2px;
 	-moz-border-radius:2px;
