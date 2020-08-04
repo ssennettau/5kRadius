@@ -120,6 +120,10 @@ strong{
 	overflow:auto;
 	max-height:40%
 }
+
+#legend td {
+	padding:5px
+}
 #options input{
 	-webkit-border-radius:2px;
 	-moz-border-radius:2px;
