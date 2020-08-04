@@ -1675,6 +1675,7 @@
         };
         polygonDestructionHandler = function()
         {
+            this.setMapOnAll(null);
             return this.setMap(null);
         };
         clearMarkers = function()
@@ -1716,6 +1717,94 @@
             });
             google.maps.event.addListener(circle, 'rightclick',
                 polygonDestructionHandler);
+
+            function callbackSupermarket(results,status)
+            {
+                if (status == google.maps.places.PlacesServiceStatus.OK)
+                {
+                    for (var i = 0; i < results.length; i++)
+                    {
+                        console.log(results[i]);
+
+                        markers.push(new google.maps.Marker({
+                            position: results[i].geometry
+                                .location,
+                            map: map,
+                            title: results[i].name,
+                            clickable: true,
+                            icon: 'icons/supermarket.png'
+                        }));
+                    }
+                }
+            }
+
+            function callbackPharmacy(results,status)
+            {
+                if (status == google.maps.places.PlacesServiceStatus.OK)
+                {
+                    for (var i = 0; i < results.length; i++)
+                    {
+                        console.log(results[i]);
+
+                        markers.push(new google.maps.Marker({
+                            position: results[i].geometry
+                                .location,
+                            map: map,
+                            title: results[i].name,
+                            clickable: true,
+                            icon: 'icons/pharmacy.png'
+                        }));
+                    }
+                }
+            }
+
+            function callbackHospital(results,status)
+            {
+                if (status == google.maps.places.PlacesServiceStatus.OK)
+                {
+                    for (var i = 0; i < results.length; i++)
+                    {
+                        console.log(results[i]);
+
+                        markers.push(new google.maps.Marker({
+                            position: results[i].geometry
+                                .location,
+                            map: map,
+                            title: results[i].name,
+                            clickable: true,
+                            icon: 'icons/hospital.png'
+                        }));
+                    }
+                }
+            }
+
+            var reqSupermarket = {
+                location: e.latLng,
+                radius: '5000',
+                type: ['grocery_or_supermarket']
+                };
+            
+            var respSupermarket = new google.maps.places.PlacesService(map);
+            respSupermarket.nearbySearch(reqSupermarket,callbackSupermarket);
+
+            var reqPharmacy = {
+                location: e.latLng,
+                radius: '5000',
+                type: ['pharmacy']
+                };
+            
+            var respPharmacy = new google.maps.places.PlacesService(map);
+            respPharmacy.nearbySearch(reqPharmacy,callbackPharmacy);
+
+            var reqHospital = {
+                location: e.latLng,
+                radius: '5000',
+                type: ['hospital']
+                };
+            
+            var respHospital = new google.maps.places.PlacesService(map);
+            respHospital.nearbySearch(reqHospital,callbackHospital);
+
             return google.maps.event.addListener(circle,
                 'click', circleDrawHandler);
         };
