@@ -97,7 +97,9 @@ strong{
 	right:10px;
 	bottom:35px;
 	width:auto;
-	max-width:25%
+	max-width:25%;
+	overflow:scroll;
+	max-height:40%
 }
 
 #options{
@@ -114,7 +116,9 @@ strong{
 	left:10px;
 	bottom:35px;
 	width:auto;
-	max-width:25%
+	max-width:25%;
+	overflow:scroll;
+	max-height:40%
 }
 #options input{
 	-webkit-border-radius:2px;
