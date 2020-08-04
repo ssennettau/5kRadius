@@ -1675,7 +1675,15 @@
         };
         polygonDestructionHandler = function()
         {
-            this.setMapOnAll(null);
+            var i, len, m;
+            for (i = 0, len = markers.length; i < len; i++)
+            {
+                m = markers[i];
+                m.setMap(null);
+            }
+
+            markers = []
+
             return this.setMap(null);
         };
         clearMarkers = function()
@@ -1766,14 +1774,16 @@
                     {
                         console.log(results[i]);
 
-                        markers.push(new google.maps.Marker({
+                        m = new google.maps.Marker({
                             position: results[i].geometry
                                 .location,
                             map: map,
                             title: results[i].name,
                             clickable: true,
                             icon: 'icons/hospital.png'
-                        }));
+                        });
+
+                        markers.push(m);
                     }
                 }
             }
