@@ -1716,7 +1716,7 @@
                 draggable: false,
                 editable: false,
                 fillColor: colorKey,
-                fillOpacity: 0.27,
+                fillOpacity: 0.15,
                 map: map,
                 radius: radius,
                 strokeColor: colorKey,
@@ -1726,6 +1726,15 @@
             google.maps.event.addListener(circle, 'rightclick',
                 polygonDestructionHandler);
 
+            function shortenName(name)
+            {
+                if (name.length > 24)
+                {
+                    name = name.substr(0,21) + "...";
+                }
+                return name;
+            }
+            
             function callbackSupermarket(results,status)
             {
                 if (status == google.maps.places.PlacesServiceStatus.OK)
@@ -1738,9 +1747,21 @@
                             position: results[i].geometry
                                 .location,
                             map: map,
-                            title: results[i].name,
+                            label: {
+                                text:shortenName(results[i].name),
+                                color:'#008000',
+                                fontSize:'10px',
+                                fontWeight:'bold'
+                            },
                             clickable: true,
-                            icon: 'icons/supermarket.png'
+                            icon: {
+                                url:'icons/supermarket.png',
+                                labelOrigin: new google.maps.Point(0,30),
+                                scaledSize: new google.maps.Size(24,24)
+                            },
+                            opacity: 0.8,
+                            animation:true,
+                            zIndex:0
                         }));
                     }
                 }
@@ -1758,9 +1779,21 @@
                             position: results[i].geometry
                                 .location,
                             map: map,
-                            title: results[i].name,
+                            label: {
+                                text:shortenName(results[i].name),
+                                color:'#0000ff',
+                                fontSize:'10px',
+                                fontWeight:'bold'
+                            },
                             clickable: true,
-                            icon: 'icons/pharmacy.png'
+                            icon: {
+                                url:'icons/pharmacy.png',
+                                labelOrigin: new google.maps.Point(0,30),
+                                scaledSize: new google.maps.Size(24,24)
+                            },
+                            opacity: 0.8,
+                            animation:true,
+                            zIndex:0
                         }));
                     }
                 }
@@ -1778,9 +1811,21 @@
                             position: results[i].geometry
                                 .location,
                             map: map,
-                            title: results[i].name,
+                            label: {
+                                text:shortenName(results[i].name),
+                                color:'#ff0000',
+                                fontSize:'10px',
+                                fontWeight:'bold'
+                            },
                             clickable: true,
-                            icon: 'icons/hospital.png'
+                            icon: {
+                                url:'icons/hospital.png',
+                                labelOrigin: new google.maps.Point(0,30),
+                                scaledSize: new google.maps.Size(24,24)
+                            },
+                            opacity: 0.8,
+                            animation:true,
+                            zIndex:0
                         });
 
                         markers.push(m);

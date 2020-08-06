@@ -122,7 +122,8 @@ strong{
 }
 
 #legend td {
-	padding:5px
+	padding:5px;
+	font-weight:bold
 }
 #legend img {
 	height:16px;
