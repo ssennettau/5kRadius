@@ -1585,50 +1585,50 @@
     };
     return q
 });
-(function(g, n)
-{
-    "object" === typeof exports ? module.exports = n(require("./URI")) :
-        "function" === typeof define && define.amd ? define(["./URI"], n) :
-        n(g.URI)
-})(this, function(g)
-{
-    var n = g.prototype,
-        q = n.fragment,
-        t = n.build;
-    g.fragmentPrefix = "!";
-    var c = g._parts;
-    g._parts = function()
+    (function(g, n)
     {
-        var u = c();
-        u.fragmentPrefix = g.fragmentPrefix;
-        return u
-    };
-    n.fragmentPrefix = function(c)
+        "object" === typeof exports ? module.exports = n(require("./URI")) :
+            "function" === typeof define && define.amd ? define(["./URI"], n) :
+            n(g.URI)
+    })(this, function(g)
     {
-        this._parts.fragmentPrefix = c;
-        return this
-    };
-    n.fragment = function(c, n)
-    {
-        var l = this._parts.fragmentPrefix,
-            h = this._parts.fragment || "";
-        if (!0 === c) return this._fragmentURI =
-            l = h.substring(0, l.length) !== l ? g("") : new g(h
-                .substring(l.length)), l._parentURI = this, l;
-        if (void 0 !== c && "string" !== typeof c) return this
-            ._fragmentURI = c, c._parentURI = c, this._parts
-            .fragment = l + c.toString(), this.build(!n), this;
-        "string" === typeof c && (this._fragmentURI = void 0);
-        return q.call(this, c, n)
-    };
-    n.build = function(c)
-    {
-        var g = t.call(this, c);
-        !1 !== c && this._parentURI && this._parentURI.fragment(this);
+        var n = g.prototype,
+            q = n.fragment,
+            t = n.build;
+        g.fragmentPrefix = "!";
+        var c = g._parts;
+        g._parts = function()
+        {
+            var u = c();
+            u.fragmentPrefix = g.fragmentPrefix;
+            return u
+        };
+        n.fragmentPrefix = function(c)
+        {
+            this._parts.fragmentPrefix = c;
+            return this
+        };
+        n.fragment = function(c, n)
+        {
+            var l = this._parts.fragmentPrefix,
+                h = this._parts.fragment || "";
+            if (!0 === c) return this._fragmentURI =
+                l = h.substring(0, l.length) !== l ? g("") : new g(h
+                    .substring(l.length)), l._parentURI = this, l;
+            if (void 0 !== c && "string" !== typeof c) return this
+                ._fragmentURI = c, c._parentURI = c, this._parts
+                .fragment = l + c.toString(), this.build(!n), this;
+            "string" === typeof c && (this._fragmentURI = void 0);
+            return q.call(this, c, n)
+        };
+        n.build = function(c)
+        {
+            var g = t.call(this, c);
+            !1 !== c && this._parentURI && this._parentURI.fragment(this);
+            return g
+        };
         return g
-    };
-    return g
-});
+    });
 
 (function()
 {
@@ -1973,7 +1973,6 @@
             }
         }).triggerHandler('hashchange');
     });
-
 }).call(this);
 
 //
